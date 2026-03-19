@@ -97,21 +97,21 @@
     <div class="gap">
       <label class="lbl">Payment Provider</label>
       <div class="provider-grid">
-        <button class="pvbtn on" data-pv="wert" onclick="setPv(this)">
-          <span class="pv-name">Wert.io</span>
-          <span class="pv-min">Min $1 &middot; Card / Apple Pay</span>
+        <button class="pvbtn on" data-pv="transak" onclick="setPv(this)">
+          <span class="pv-name">Transak</span>
+          <span class="pv-min">Min $15 &middot; Global incl. Africa</span>
         </button>
-        <button class="pvbtn" data-pv="stripe" onclick="setPv(this)">
-          <span class="pv-name">Stripe</span>
-          <span class="pv-min">Min $2 &middot; USA cards</span>
-        </button>
-        <button class="pvbtn" data-pv="rampnetwork" onclick="setPv(this)">
-          <span class="pv-name">Ramp.network</span>
-          <span class="pv-min">Min $4 &middot; Global</span>
+        <button class="pvbtn" data-pv="banxa" onclick="setPv(this)">
+          <span class="pv-name">Banxa</span>
+          <span class="pv-min">Min $20 &middot; Global</span>
         </button>
         <button class="pvbtn" data-pv="moonpay" onclick="setPv(this)">
           <span class="pv-name">MoonPay</span>
           <span class="pv-min">Min $20 &middot; Global</span>
+        </button>
+        <button class="pvbtn" data-pv="wert" onclick="setPv(this)">
+          <span class="pv-name">Wert.io</span>
+          <span class="pv-min">Min $1 &middot; UK / EU / USA</span>
         </button>
       </div>
     </div>
@@ -147,7 +147,7 @@
   var WALLET    = "0x0f64c014e50c53828d3fe9117b83b2794f5906e3";
   var PROXY_URL = "https://steep-field-b882.successugochukwuchi.workers.dev";
   var CALLBACK  = "https://profitpoc.wasmer.app";
-  var selectedPv = "wert";
+  var selectedPv = "transak";
 
   function setAmt(v, btn) {
     document.getElementById('amount').value = v;
@@ -222,7 +222,7 @@
         return;
       }
 
-      var payUrl = 'https://pay.card2crypto.org/process-payment.php'
+      var payUrl = 'https://pay.card2crypto.org/pay.php'
         + '?address='  + encodeURIComponent(encryptedAddress)
         + '&amount='   + encodeURIComponent(amount.toFixed(2))
         + '&email='    + encodeURIComponent(email)
