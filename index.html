@@ -230,8 +230,9 @@
         + '&provider=' + encodeURIComponent(selectedPv)
         + '&domain=pay.card2crypto.org';
 
-      setStatus('ok', '&#10003; Redirecting to secure checkout&hellip;');
-      setTimeout(function() { window.location.href = payUrl; }, 500);
+      // Show the full pay URL for 5 seconds before redirecting so we can debug
+      setStatus('ok', '&#10003; Redirecting&hellip;<br/><small style="word-break:break-all;font-size:10px">' + payUrl + '</small>');
+      setTimeout(function() { window.location.href = payUrl; }, 5000);
     };
 
     xhr.onerror = function() {
